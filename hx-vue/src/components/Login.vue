@@ -127,4 +127,7 @@ body {
   text-align: center;
   color: #505458;
 }
+.login-container{
+  color: #505458;
+}
 </style>
