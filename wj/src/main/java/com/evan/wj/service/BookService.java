@@ -18,6 +18,7 @@ public class BookService {
 
     public List<Book> list() {
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
+        //Sort sort = new Sort(Sort.Direction.DESC, "id");
         return bookDAO.findAll(sort);
     }
 
@@ -33,6 +34,9 @@ public class BookService {
         Category category = categoryService.get(cid);
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
         return bookDAO.findAllByCategory(category);
+    }
+    public List<Book> Search(String keywords) {
+        return bookDAO.findAllByTitleLikeOrAuthorLike('%' + keywords + '%', '%' + keywords + '%');
     }
 }
 
